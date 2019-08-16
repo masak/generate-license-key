@@ -1,0 +1,37 @@
+<div class="calculator">
+  <p>
+    <label>
+      User name:
+      <Input @value={{this.userName}} />
+    </label>
+  </p>
+
+  <p>
+    <label>
+      Expiry month:
+      <br>
+      {{#each this.years as |year|}}
+        <button
+          {{on "click" (fn this.setExpiryYear year)}}
+          class="button {{if (eq year this.expiryYear) "selected"}}"
+        >
+          {{year}}
+        </button>
+      {{/each}}
+      <br>
+      {{#each this.months as |month|}}
+        <button
+          {{on "click" (fn this.setExpiryMonth month)}}
+          class="button {{if (eq month this.expiryMonth) "selected"}}"
+        >
+          {{month}}
+        </button>
+      {{/each}}
+    </label>
+  </p>
+
+  <p>
+    License key:
+    <code>{{this.licenseKey}}</code>
+  </p>
+</div>
